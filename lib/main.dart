@@ -26,6 +26,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int number = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,23 +41,24 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           //จัดรูปแบบการแสดงผลในคอลัมน์
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Text(
-              "Hello",
+          children: [
+            const Text(
+              "Welcome to my App",
+              style: TextStyle(fontSize: 20, color: Colors.orange),
+            ),
+            const Text(
+              "Press button to increase number",
               style: TextStyle(fontSize: 20, color: Colors.orange),
             ),
             Text(
-              "Welcome to my app",
-              style: TextStyle(fontSize: 20, color: Colors.orange),
+              "$number",
+              style: const TextStyle(fontSize: 60),
             ),
-            Text(
-              "Create by Joe",
-              style: TextStyle(fontSize: 20, color: Colors.orange),
-            ),
-            Image(
+          ],
+          /* Image(
                 image: NetworkImage(
                     "https://static.vecteezy.com/system/resources/previews/005/298/799/original/cute-bear-sitting-animal-cartoon-character-design-illustration-free-vector.jpg"))
-          ],
+          ], */
         ),
         /* child: Text(
             "Welcome to my app",
@@ -65,6 +68,14 @@ class _MyHomePageState extends State<MyHomePage> {
               image: NetworkImage(
                   "https://static.vecteezy.com/system/resources/previews/005/298/799/original/cute-bear-sitting-animal-cartoon-character-design-illustration-free-vector.jpg")
                   ), */
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            number++;
+          });
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }
